@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--baseTextColor);
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbarThumb);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--scrollbarTrack);
+}
+::selection {
+  background: var(--textSelectionColor);
+}
+
+// html,
+// body,
+// #app {
+//   min-width: 300px;
+//   height: 100%;
+//   width: 100%;
+// }
+
+// html{
+//   height: 100vh;
+// }
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  // overflow-y: auto;
+  font-family: "iAWriter", monospace;
+  font-size: 15.5px;
+}

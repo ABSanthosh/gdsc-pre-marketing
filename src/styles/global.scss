@@ -40,7 +40,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  // overflow-y: auto;
-  font-family: "iAWriter", monospace;
-  font-size: 15.5px;
+  font-family: "Roboto", sans-serif;
+  @include box(100vw, unset);
+  overflow-y: auto;
 }

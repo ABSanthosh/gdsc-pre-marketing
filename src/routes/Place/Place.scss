@@ -1,0 +1,112 @@
+.PlaceWrapper {
+  @include box($height: unset);
+  @include make-flex($just: flex-start);
+  background-color: #ffffff;
+  gap: 15px;
+
+  &__top {
+    @include box(100%, 100px);
+    @include make-flex($dir: row, $align: flex-start, $just: space-between);
+    &--logo {
+      padding: 10px 0 0 20px;
+      height: 70px;
+    }
+    &--squareStretch {
+      height: 100%;
+    }
+  }
+
+  &__heading {
+    @include make-flex($align: flex-start, $just: space-between);
+    @include box($height: auto);
+    padding: 0 20px;
+    gap: 10px;
+
+    h2 {
+      font-size: 30px;
+      font-weight: 500;
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+
+  &__funfact {
+    @include make-flex($align: flex-start, $just: space-between);
+    @include box($height: auto);
+    padding: 0 20px;
+    gap: 15px;
+    margin-top: 15px;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+
+      span {
+        color: #1a73e8;
+        font-weight: 600;
+      }
+    }
+
+    &--card {
+      @include make-flex($dir: row, $align: flex-start, $just: space-between);
+      @include box($height: 140px);
+      border: 1px solid #dadce0;
+      border-radius: 10px;
+      position: relative;
+
+      p {
+        @include box();
+        @include make-flex();
+        padding: 10px;
+      }
+    }
+
+    &--noise {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    &--placeImg {
+      height: 100%;
+      border-radius: 10px;
+    }
+  }
+
+  &__question {
+    @include make-flex($align: flex-start, $just: space-between);
+    @include box($height: auto);
+    padding: 0 20px;
+    gap: 15px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+
+    p {
+      color: #5d6975;
+      font-size: 17px;
+    }
+
+    &--buttonContainer {
+      @include box(100%, auto);
+      position: relative;
+      max-width: 455px;
+      @include make-flex($align: flex-end);
+
+      img {
+        position: absolute;
+        left: -20px;
+        bottom: -20px;
+      }
+      button {
+        background-color: #1a73e8;
+        color: white;
+        border-radius: 3px;
+        padding: 7px 20px;
+        font-size: 17px;
+        font-weight: 600;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}

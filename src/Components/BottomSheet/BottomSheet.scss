@@ -1,0 +1,84 @@
+.BottomSheetWrapper {
+  @include box(100vw, 100vh);
+  @include make-flex($just: flex-end);
+  background-image: url("../../../public/assets/Background.svg");
+  background-size: cover;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+
+  &__form {
+    @include box(100%, auto);
+    @include make-flex($just: flex-start);
+    border-radius: 50px 50px 0 0;
+    background-color: white;
+    padding: 40px 25px 25px 25px;
+    gap: 35px;
+    overflow-y: auto;
+
+    &--top {
+      @include make-flex();
+      gap: 10px;
+      img {
+        width: 65px;
+      }
+      h3 {
+        font-weight: 500;
+        color: #202124;
+      }
+      p {
+        color: #5d6975;
+        text-align: center;
+      }
+    }
+    &--inputs {
+      @include box(100%, auto);
+      @include make-flex($just: flex-start);
+      gap: 20px;
+    //   min-width: 285px;
+      max-width: 455px;
+
+      select {
+        @include box($height: 50px);
+        font-size: 17px;
+        outline: none;
+        color: #000;
+        padding: 0 10px;
+        border-radius: 3px;
+        border: 1px solid #e8e9eb;
+        background-color: white;
+      }
+    }
+
+    &--terms {
+      @include box(100%, auto);
+    //   min-width: 285px;
+      max-width: 455px;
+      font-size: 14px;
+
+      a {
+        color: #1a73e8;
+        text-decoration: none;
+        font-weight: 500;
+      }
+    }
+
+    &--buttonContainer {
+      @include box(100%, auto);
+    //   min-width: 285px;
+      max-width: 455px;
+      @include make-flex($align: flex-end);
+
+      button {
+        background-color: #1a73e8;
+        color: white;
+        border-radius: 3px;
+        padding: 7px 20px;
+        font-size: 17px;
+        font-weight: 600;
+        outline: none;
+        border: none;
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@
 
   export let { params } = $$props;
   let userInfoSheet = true;
-  console.log(params);
+
   const handleUser = () => {
     userInfoSheet = false;
   };

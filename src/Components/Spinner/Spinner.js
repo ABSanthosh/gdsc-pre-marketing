@@ -2,7 +2,7 @@ import "./Spinner.scss";
 
 export default function Spinner({ height = 27, width = 27 }) {
   return (
-    <div class="IoSpinnerWrapper loader-ios">
+    <div className="IoSpinnerWrapper loader-ios">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width={`${width}`}

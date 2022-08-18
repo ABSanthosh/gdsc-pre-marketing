@@ -6,7 +6,7 @@ import GInput from "../src/Components/GInput/GInput";
 import "../styles/routes/Place.scss";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const router = useRouter();
   const place = router.query.place;
   const [localData, setLocalData] = useState({

@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import BottomSheet from "../src/Components/BottomSheet/BottomSheet";
 import GInput from "../src/Components/GInput/GInput";
+import Spinner from "../src/Components/Spinner/Spinner";
 import "../styles/routes/Place.scss";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
   const router = useRouter();
   const place = router.query.place;
   const [isDesktopSize, setIsDesktopSize] = useState(false);
+  const [loadingScreen, setLoadingScreen] = useState(false);
   const [localData, setLocalData] = useState({
     name: "",
     email: "",
@@ -41,6 +43,11 @@ export default function Home() {
   }, [isOpen]);
   return (
     <>
+      {loadingScreen && (
+        <div className="LoadingOverlay">
+          <Spinner />
+        </div>
+      )}
       {!isDesktopSize && (
         <div className="PlaceWrapper">
           <Head>
@@ -95,6 +102,7 @@ export default function Home() {
                 onSubmit={(e) => {
                   e.preventDefault();
                   setData(localData);
+                  setLoadingScreen(true);
 
                   fetch("/api/excel", {
                     method: "POST",
@@ -105,6 +113,7 @@ export default function Home() {
                   })
                     .then((r) => r.text())
                     .then((result) => {
+                      setLoadingScreen(false);
                       if (
                         window.confirm("Thanks for answering the question!")
                       ) {

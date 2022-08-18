@@ -37,7 +37,7 @@ export default function BottomSheet({ setData, setIsOpen }) {
           <GInput
             id="snuId"
             type="email"
-            label="SNU Net Id"
+            label="SNU Email Id"
             pattern="[a-z0-9._%+-]+@snu.edu.in$"
             setValue={(e) => {
               setFormData({ ...formData, email: e.target.value });

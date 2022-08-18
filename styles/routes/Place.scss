@@ -2,6 +2,7 @@
   @include box($height: unset);
   @include make-flex($just: flex-start);
   background-color: #ffffff;
+  max-width: 455px;
   gap: 15px;
 
   &__top {
@@ -50,15 +51,25 @@
 
     &--card {
       @include make-flex($dir: row, $align: flex-start, $just: space-between);
-      @include box($height: 140px);
+      @include box($height: auto);
+      min-height: 140px;
       border: 1px solid #dadce0;
       border-radius: 10px;
       position: relative;
+
+      @include respondAt(350px) {
+        flex-direction: column;
+      }
 
       p {
         @include box();
         @include make-flex();
         padding: 10px;
+        min-height: 140px;
+        @include respondAt(350px) {
+          min-height: unset;
+          padding: 15px;
+        }
       }
     }
 
@@ -69,6 +80,10 @@
     }
     &--placeImg {
       height: 100%;
+      @include respondAt(350px) {
+        width: 100%;
+      }
+      min-height: 140px;
       border-radius: 10px;
     }
   }
@@ -114,18 +129,25 @@
     @include box(100%, auto);
     margin-top: auto;
     @include make-flex();
+    padding: 10px 0;
+    max-width: 455px;
     font-family: "Open Sans", sans-serif;
 
     span {
       @include make-flex($dir: row);
+      text-align: center;
       color: #656c73;
       gap: 6px;
       font-size: 19px;
+      @include respondAt(350px) {
+        flex-direction: column;
+      }
       img {
         @include box(auto, 32px);
       }
     }
     P {
+      text-align: center;
       color: #656c73;
     }
   }

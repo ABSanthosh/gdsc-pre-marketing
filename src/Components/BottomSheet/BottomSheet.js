@@ -29,6 +29,7 @@ export default function BottomSheet({ setData, setIsOpen }) {
           <GInput
             id="name"
             label="Name"
+            pattern="*"
             setValue={(e) => {
               setFormData({ ...formData, name: e.target.value });
             }}

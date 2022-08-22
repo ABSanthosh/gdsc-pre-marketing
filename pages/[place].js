@@ -233,7 +233,12 @@ export default function Home({ question, funFacts, factIndex, place }) {
                   setData(localData);
                   setLoadingScreen(true);
 
-                  if (localStorage.getItem("isFilled") === null) {
+                  if (
+                    localStorage.getItem("isFilled") === null ||
+                    !JSON.parse(localStorage.getItem("isFilled")).includes(
+                      place
+                    )
+                  ) {
                     fetch("/api/excel", {
                       method: "POST",
                       headers: {
@@ -244,7 +249,13 @@ export default function Home({ question, funFacts, factIndex, place }) {
                       .then((r) => r.text())
                       .then((result) => {
                         setLoadingScreen(false);
-                        localStorage.setItem("isFilled", "true");
+                        localStorage.setItem(
+                          "isFilled",
+                          JSON.stringify([
+                            ...JSON.parse(localStorage.getItem("isFilled")),
+                            place,
+                          ])
+                        );
                         if (
                           window.confirm("Thanks for answering the question!")
                         ) {

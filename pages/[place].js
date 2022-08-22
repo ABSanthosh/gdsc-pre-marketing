@@ -124,6 +124,7 @@ export async function getServerSideProps(context) {
       ],
     },
   };
+  console.log(context);
   return {
     props: {
       question: questions[Math.floor(Math.random() * questions.length)],
@@ -233,47 +234,48 @@ export default function Home({ question, funFacts, factIndex, place }) {
                   setData(localData);
                   setLoadingScreen(true);
 
-                  if (
-                    localStorage.getItem("isFilled") === null ||
-                    !JSON.parse(localStorage.getItem("isFilled")).includes(
-                      place
-                    )
-                  ) {
-                    fetch("/api/excel", {
-                      method: "POST",
-                      headers: {
-                        "Content-Type": "application/json",
-                      },
-                      body: JSON.stringify(localData),
+                  // if (
+                  //   localStorage.getItem("isFilled") === null ||
+                  //   !JSON.parse(localStorage.getItem("isFilled")).includes(
+                  //     place
+                  //   )
+                  // ) {
+                  fetch("/api/excel", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(localData),
+                  })
+                    .then((r) => r.text())
+                    .then((result) => {
+                      setLoadingScreen(false);
+                      // localStorage.setItem(
+                      //   "isFilled",
+                      //   JSON.stringify([
+                      //     ...JSON.parse(localStorage.getItem("isFilled")),
+                      //     place,
+                      //   ])
+                      // );
+                      if (
+                        window.confirm("Thanks for answering the question!")
+                      ) {
+                        window.location.href = post;
+                      }
                     })
-                      .then((r) => r.text())
-                      .then((result) => {
-                        setLoadingScreen(false);
-                        localStorage.setItem(
-                          "isFilled",
-                          JSON.stringify([
-                            ...JSON.parse(localStorage.getItem("isFilled")),
-                            place,
-                          ])
-                        );
-                        if (
-                          window.confirm("Thanks for answering the question!")
-                        ) {
-                          window.location.href = post;
-                        }
-                      })
-                      .catch(() => {
-                        window.alert("Some error occured. Please try again.");
-                      });
-                  } else {
-                    if (
-                      window.confirm(
-                        "Looks right you have already filled it once. You can follow us on instagram though(if you haven't yet)"
-                      )
-                    ) {
-                      window.location.href = post;
-                    }
-                  }
+                    .catch(() => {
+                      window.alert("Some error occured. Please try again.");
+                    });
+                  // }
+                  //  else {
+                  //   if (
+                  //     window.confirm(
+                  //       "Looks right you have already filled it once. You can follow us on instagram though(if you haven't yet)"
+                  //     )
+                  //   ) {
+                  //     window.location.href = post;
+                  //   }
+                  // }
                 }}
               >
                 <h2>
@@ -286,7 +288,7 @@ export default function Home({ question, funFacts, factIndex, place }) {
                 <GInput
                   id="answer"
                   label="Write your answer..."
-                  pattern="*"
+                  pattern="([\w\W])+"
                   setValue={(e) => {
                     setLocalData({ ...localData, answer: e.target.value });
                   }}

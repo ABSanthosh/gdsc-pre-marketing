@@ -21,7 +21,6 @@ export default function BottomSheet({ setData, setIsOpen }) {
       >
         <div className="BottomSheetWrapper__form--top">
           <img src="/assets/gdscLogo.png" />
-          {/* <Image src="/gdscLogo.png" width={200} height={200} /> */}
           <h3>Register</h3>
           <p>Use your Shiv Nadar University Account</p>
         </div>
@@ -56,7 +55,7 @@ export default function BottomSheet({ setData, setIsOpen }) {
         </div>
         <p className="BottomSheetWrapper__form--terms">
           Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et. dolor
-          sit
+          sit &nbsp;
           <a href="#">Learn more</a>
         </p>
         <div className="BottomSheetWrapper__form--buttonContainer">

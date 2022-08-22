@@ -52,7 +52,6 @@
 
     &--terms {
       @include box(100%, auto);
-    //   min-width: 285px;
       max-width: 455px;
       font-size: 14px;
 
@@ -65,7 +64,6 @@
 
     &--buttonContainer {
       @include box(100%, auto);
-    //   min-width: 285px;
       max-width: 455px;
       @include make-flex($align: flex-end);
 

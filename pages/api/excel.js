@@ -11,10 +11,12 @@ export default function handler(req, res) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      timestamp: new Date().toISOString(),
       name: req.body.name,
       netid: req.body.email,
       year: req.body.majorAndYear,
       place: req.body.location,
+      question: req.body.question,
       answer: req.body.answer,
     }),
   })

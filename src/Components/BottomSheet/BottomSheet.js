@@ -54,9 +54,9 @@ export default function BottomSheet({ setData, setIsOpen }) {
           </select>
         </div>
         <p className="BottomSheetWrapper__form--terms">
-          Lorem ipsum dolor sit amet consectetur adipiscing elit Ut et. dolor
-          sit &nbsp;
-          <a href="#">Learn more</a>
+          For more details on past and upcoming events by GDSC, Follow us on our
+          &nbsp;
+          <a href="https://www.instagram.com/gdsc.snioe/">Instagram!</a>
         </p>
         <div className="BottomSheetWrapper__form--buttonContainer">
           <button type="submit">Next</button>

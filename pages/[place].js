@@ -205,8 +205,7 @@ export default function Home({ question, funFacts, factIndex, place }) {
               <div className="PlaceWrapper__heading">
                 <h2>Hello, {localData.name}</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur dolor sit adipiscing
-                  elit Ut et.
+                  We welcome you to the Google Developers Student Club, Shiv Nadar University.
                 </p>
               </div>
 

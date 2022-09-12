@@ -18,6 +18,10 @@ export async function getServerSideProps(context) {
       location: "A block",
       facts: ["Morning nightmare of boys."],
     },
+    "b-block": {
+      location: "B block",
+      facts: ["I am known only because of B315"],
+    },
     "c-block": {
       location: "C block",
       facts: ["I am the luckiest block I have food stalls on either sides."],
@@ -116,6 +120,10 @@ export async function getServerSideProps(context) {
         "The place you can find the another lead of the famous Disney “secretariat” movie.",
       ],
     },
+    "a-and-b": {
+      location: "A&B",
+      facts: ["Try Peri Peri Fries with coke, here at Quench"],
+    },
     "c-and-d": {
       location: "C&D",
       facts: [
@@ -205,7 +213,8 @@ export default function Home({ question, funFacts, factIndex, place }) {
               <div className="PlaceWrapper__heading">
                 <h2>Hello, {localData.name}</h2>
                 <p>
-                  We welcome you to the Google Developers Student Club, Shiv Nadar University.
+                  We welcome you to the Google Developers Student Club, Shiv
+                  Nadar University.
                 </p>
               </div>
 
